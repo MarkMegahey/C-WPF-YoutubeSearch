@@ -1,0 +1,60 @@
+﻿<Window x:Class="YoutubeSearch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YoutubeSearch"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="LightGray">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10"  VerticalAlignment="Top">
+            <TextBox Name="YoutubeSearchBar_Textbox" Height="30"  Width="600"/>
+            <Button Name="YoutubeSearchButton_Button" Height="30" Width="170" Content="Submit" Click="YoutubeSearchButton_Button_ClickAsync"/>
+        </StackPanel>
+        
+        <ListView Grid.Row="1" Name="YoutubeSearchDisplay" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="550">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,0.5" />
+                    <Setter Property="Padding" Value="20,0,20,0" />
+                    <Setter Property="FontSize" Value="12" />
+                    <Setter Property="Foreground" Value="Black" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Thumbnail">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Thumbnail}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Title}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="System">Title</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Author}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="System">Author</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding URL}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="System">URL</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
