@@ -26,6 +26,7 @@
                     <Setter Property="Padding" Value="20,0,20,0" />
                     <Setter Property="FontSize" Value="12" />
                     <Setter Property="Foreground" Value="Black" />
+                    <EventSetter Event="PreviewMouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
@@ -38,17 +39,17 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Title}">
+                    <GridViewColumn Width="AUTO" DisplayMemberBinding="{Binding Title}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="System">Title</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Author}">
+                    <GridViewColumn Width="AUTO" DisplayMemberBinding="{Binding Author}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="System">Author</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding URL}">
+                    <GridViewColumn Width="AUTO" DisplayMemberBinding="{Binding URL}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="System">URL</GridViewColumnHeader>
                         </GridViewColumn.Header>

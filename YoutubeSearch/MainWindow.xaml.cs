@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -76,6 +77,16 @@ namespace YoutubeSearch
                         break;
                 }
             }
+        }
+
+        private void ListViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            YTVideo video = (YTVideo)YoutubeSearchDisplay.SelectedItem;
+
+            if (video == null)
+                return;
+
+            Process.Start(video.URL);
         }
     }
 }
